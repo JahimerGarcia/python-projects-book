@@ -17,5 +17,3 @@ It's important to put in practice all that I've learned about python.
 - unit tests
 - good practices of code
 
-
-- xd
