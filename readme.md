@@ -6,7 +6,7 @@
 3. A web app
 
 
-I'ts important to put in practice all that I've learned about python.
+It's important to put in practice all that I've learned about python.
 
 - variables 
 - conditional
