@@ -1,6 +1,6 @@
 import sys
 import pygame
-
+from settings_ai import Settings
 
 
 class AlienInvasion:
@@ -11,18 +11,20 @@ class AlienInvasion:
         """
         Initialize the game, and create game resources.
         """
-        
         pygame.init()
-        self.screen = pygame.display.set_mode((500,500), flags= pygame.RESIZABLE | pygame.SCALED) # start the windows and set the size, you can use | (pipe) to pass more flags 
+        self.settings = Settings() # this is a class module with all settings
+        self.screen = pygame.display.set_mode((self.settings.screen_width,self.settings.screen_height), 
+        flags= pygame.RESIZABLE | pygame.SCALED) # start the windows and set the size, you can use | (pipe) to pass more flags 
         pygame.display.set_caption("Alien Invasion") # name of the windows appear above 
-
+        
     def run_game(self):
         """Start the main loop for the game."""
-        self.clock = pygame.time.Clock()  # this will be used for fps
-
+          # this will be used for fps
+        self.clock = pygame.time.Clock()
         while True:
-            self.clock.tick(40) # set fps of he windows 
-            # print(self.clock.get_fps()) around 39 fps
+            self.clock.tick(self.settings.fps) # set fps of he windows 
+            #print(self.clock.get_fps()) around 39
+            self.screen.fill(self.settings.bg_color) 
             
             # Watch for keyboard and mouse events.
             for event in pygame.event.get():
