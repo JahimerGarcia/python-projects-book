@@ -50,9 +50,10 @@ class AlienInvasion:
         #print(self.clock.get_fps()) around 39
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
+        self.peppa.blitme()
+
         # Make the most recently drawn screen visible.
         pygame.display.update() # This will update all the content on the windows same as pygame.display.flip()
-        self.peppa.blitme()
 
 
 if __name__ == '__main__':
