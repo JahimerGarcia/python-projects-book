@@ -4,6 +4,7 @@ from settings_ai import Settings
 from ship import Ship
 # from peppa import Peppa
 from bullet import Bullet
+from alien import Alien
 
 
 class AlienInvasion:
@@ -24,6 +25,9 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         self.bullets = pygame.sprite.Group()
         # self.peppa = Peppa(self)
+        self.aliens = pygame.sprite.Group()
+        self._create_fleet()
+
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -102,6 +106,7 @@ class AlienInvasion:
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
         # self.peppa.blitme()
+        self.aliens.draw(self.screen)
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
 
@@ -113,6 +118,12 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+
+    def  _create_fleet(self):
+        """Create the fleet of aliens."""
+        # Make an alien
+        alien = Alien(self)
+        self.aliens.add(alien)
 
 
 if __name__ == '__main__':
