@@ -2,7 +2,7 @@ import sys
 import pygame
 from settings_ai import Settings
 from ship import Ship
-from peppa import Peppa
+# from peppa import Peppa
 
 
 class AlienInvasion:
@@ -21,7 +21,7 @@ class AlienInvasion:
         self.ship = Ship(self)
           # this will be used for fps
         self.clock = pygame.time.Clock()
-        self.peppa = Peppa(self)
+        # self.peppa = Peppa(self)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -58,6 +58,11 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             # move to the left when Kleft is pressed
             self.ship.moving_left = True
+        
+        elif event.key == pygame.K_q:
+            sys.exit()
+
+
 
     def _check_keyup_event(self, event):
         """Respond to key releases"""
