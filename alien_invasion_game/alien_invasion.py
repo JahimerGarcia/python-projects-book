@@ -43,21 +43,29 @@ class AlienInvasion:
                 #pygame.display.quit() --> this quit the windows but the program still running
                 sys.exit() # usar este que cierra el programa
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    # Move the ship to the right when the Kright is pressed
-                    self.ship.moving_right = True
-                elif event.key == pygame.K_LEFT:
-                    # move to the left when Kleft is pressed
-                    self.ship.moving_left = True
+            elif event.type == pygame.KEYDOWN: #if key is hold
+                self._check_keydown_event(event)
                 
-            elif event.type == pygame.KEYUP: # if key right is released then not move
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
+            elif event.type == pygame.KEYUP: # if key is released
+                self._check_keyup_event(event)
 
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False
+    def _check_keydown_event(self, event):
+        """Respond to keypresses."""
+        if event.key == pygame.K_RIGHT:
+            # Move the ship to the right when the Kright is pressed
+            self.ship.moving_right = True
+        
+        elif event.key == pygame.K_LEFT:
+            # move to the left when Kleft is pressed
+            self.ship.moving_left = True
 
+    def _check_keyup_event(self, event):
+        """Respond to key releases"""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
 
 
     def _update_screen(self):
