@@ -116,7 +116,6 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-                print(len(self.bullets))
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
@@ -209,6 +208,7 @@ class AlienInvasion:
         #decrement ships_left
         if self.stats.ships_left > 0:
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
         else:
             self.stats.game_active = False
             pygame.mouse.set_visible(True)
@@ -252,6 +252,7 @@ class AlienInvasion:
             self.settings.initialize_dynamic_settings()
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships() 
             self.stats.game_active = True
             pygame.mouse.set_visible(False)
 
