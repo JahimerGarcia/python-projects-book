@@ -187,6 +187,9 @@ class AlienInvasion:
             self.settings.increase_speed()
             self.bullets.empty()
             self._create_fleet()
+            # Increase level.
+            self.stats.level += 1
+            self.sb.prep_level()
         
         if collisions:
             self.stats.score += self.settings.alien_points
@@ -248,6 +251,7 @@ class AlienInvasion:
             # Reset the game settings.
             self.settings.initialize_dynamic_settings()
             self.sb.prep_score()
+            self.sb.prep_level()
             self.stats.game_active = True
             pygame.mouse.set_visible(False)
 
