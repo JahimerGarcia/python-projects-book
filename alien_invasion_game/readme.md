@@ -11,7 +11,7 @@ derribar una oleada de aliens que a medida que bajan se van colocando rapidos
 y dificil de matar. Al final del proyecto habre aprendido habilidades que me permitiran
 crear juegos en 2D con el modulo pygame
 
-## Como funciona el juego
+## Como funciona el juego xd
 
 
 
