@@ -3,7 +3,7 @@
 
 1. Alien invasion game
 2. Data visualization
-3. A web app
+3. An api.
 
 
 It's important to put in practice all that I've learned about python.
